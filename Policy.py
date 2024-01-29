@@ -1,5 +1,5 @@
 """
-FortiGate Configuration Generator Script
+FortiGate Configuration Generator Script - for Policy
 
 Author: Yogev Kahana
 Version: Beta 1.0
