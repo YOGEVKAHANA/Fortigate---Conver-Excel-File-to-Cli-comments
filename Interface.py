@@ -1,9 +1,9 @@
 """
-FortiGate Configuration Generator Script - for Policy
+FortiGate Configuration Generator Script
 
 Author: Yogev Kahana
 Version: Beta 1.0
-Date: December 17, 2023
+Date: January 10, 2024
 
 This script allows you to generate FortiGate configuration commands based on data from an Excel file.
 The generated commands are then saved to a Notepad file.
@@ -51,18 +51,17 @@ def process_excel_file(excel_file_path, notepad_file_path):
 
     # Iterating through rows
     for row in sheet.iter_rows(min_row=2, values_only=True):
-        policy_id,name, srcaddr, srcintf, dstintf, dstaddr, service,action = row
+        interface_name,vdom, mode, ip, security_mode, access = row
 
         # Building configuration commands
         config_commands = f"""
-edit {policy_id}
-    set name {name}
-    set srcintf {srcintf}
-    set dstintf {dstintf}
-    set srcaddr {srcaddr}
-    set dstaddr {dstaddr}
-    set service {service}
-    set action {action}
+edit {interface_name}
+    set vdom {vdom}
+    set mode {mode}
+    set ip {ip}
+    set security_mode {security_mode}
+    set access {access}
+  
 
 next
 """
